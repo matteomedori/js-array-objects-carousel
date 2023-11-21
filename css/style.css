@@ -40,6 +40,10 @@
   border-color: red;
 }
 
+#invert {
+  border-color: yellow;
+}
+
 .item {
   height: 100%;
   display: none;

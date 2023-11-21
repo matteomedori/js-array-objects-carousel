@@ -167,16 +167,23 @@ for (let i = 0; i < allThumbnails.length; i++) {
   });
 }
 
-// // //variabile che mi serve per interrompere l'autoplay
-// // let timer;
+//variabile che mi serve per interrompere l'autoplay
+let timer;
 
-// // const startBtn = document.getElementById("start");
-// // const stopBtn = document.getElementById("stop");
+const startBtn = document.getElementById("start");
+const stopBtn = document.getElementById("stop");
+const invertBtn = document.getElementById("invert");
 
-// // startBtn.addEventListener("click", function () {
-// //   timer = setInterval(nextImg, 3_000);
-// // });
+startBtn.addEventListener("click", function () {
+  clearInterval(timer);
+  timer = setInterval(nextImg, 3_000);
+});
 
-// // stopBtn.addEventListener("click", function () {
-// //   clearInterval(timer);
-// // });
+stopBtn.addEventListener("click", function () {
+  clearInterval(timer);
+});
+
+invertBtn.addEventListener("click", function () {
+  clearInterval(timer);
+  timer = setInterval(prevImg, 3_000);
+});
