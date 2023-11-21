@@ -4,39 +4,39 @@
 FUNCTIONS
 */
 
-// //funzione che va sulla prossima immagine
-// function nextImg() {
-//   allItems[counterActive].classList.remove("active");
-//   //rimuovo classe selected a aggiungo not-selected
-//   // allThumbnailImages[counterActive].classList.remove("selected");
-//   // allThumbnailImages[counterActive].classList.add("not-selected");
-//   if (counterActive < allItems.length - 1) {
-//     counterActive++;
-//   } else {
-//     counterActive = 0;
-//   }
-//   allItems[counterActive].classList.add("active");
-//   //rimuovo classe not-selected a aggiungo selected
-//   // allThumbnailImages[counterActive].classList.add("selected");
-//   // allThumbnailImages[counterActive].classList.remove("not-selected");
-// }
+//funzione che va sulla prossima immagine
+function nextImg() {
+  allItems[counterActive].classList.remove("active");
+  //rimuovo classe selected a aggiungo not-selected
+  // allThumbnailImages[counterActive].classList.remove("selected");
+  // allThumbnailImages[counterActive].classList.add("not-selected");
+  if (counterActive < allItems.length - 1) {
+    counterActive++;
+  } else {
+    counterActive = 0;
+  }
+  allItems[counterActive].classList.add("active");
+  //rimuovo classe not-selected a aggiungo selected
+  // allThumbnailImages[counterActive].classList.add("selected");
+  // allThumbnailImages[counterActive].classList.remove("not-selected");
+}
 
-// //funzione che va sulla precedente immagine
-// function prevImg() {
-//   allItems[counterActive].classList.remove("active");
-//   //rimuovo classe selected a aggiungo not-selected
-//   // allThumbnailImages[counterActive].classList.remove("selected");
-//   // allThumbnailImages[counterActive].classList.add("not-selected");
-//   if (counterActive > 0) {
-//     counterActive--;
-//   } else {
-//     counterActive = allItems.length - 1;
-//   }
-//   allItems[counterActive].classList.add("active");
-//   //rimuovo classe not-selected a aggiungo selected
-//   // allThumbnailImages[counterActive].classList.add("selected");
-//   // allThumbnailImages[counterActive].classList.remove("not-selected");
-// }
+//funzione che va sulla precedente immagine
+function prevImg() {
+  allItems[counterActive].classList.remove("active");
+  //rimuovo classe selected a aggiungo not-selected
+  // allThumbnailImages[counterActive].classList.remove("selected");
+  // allThumbnailImages[counterActive].classList.add("not-selected");
+  if (counterActive > 0) {
+    counterActive--;
+  } else {
+    counterActive = allItems.length - 1;
+  }
+  allItems[counterActive].classList.add("active");
+  //rimuovo classe not-selected a aggiungo selected
+  // allThumbnailImages[counterActive].classList.add("selected");
+  // allThumbnailImages[counterActive].classList.remove("not-selected");
+}
 
 // //funzione che gestisce il click sul thumbnail
 // function changeThumbImg(img, indexImg) {
@@ -66,6 +66,8 @@ function addImg(element, index) {
     //aggiungo un item
     items.innerHTML += `<div class="item active">
         <img src="./img/${element.imageURL}" alt="Immagine ${index + 1}" />
+        <div class="title-description"><h2>${element.title}</h2>
+        <p>${element.description}</p></div>
         </div>`;
     //aggiungo un thumbnail
     // thumbnails.innerHTML += `<div class="thumbnail ">
@@ -76,6 +78,8 @@ function addImg(element, index) {
   } else {
     items.innerHTML += `<div class="item">
         <img src="./img/${element.imageURL}" alt="Immagine ${index + 1}" />
+        <div class="title-description"><h2>${element.title}</h2>
+        <p>${element.description}</p></div>
         </div>`;
     // thumbnails.innerHTML += `<div class="thumbnail ">
     // <img src="./img/${images[index]}" alt="Immagine ${
@@ -130,31 +134,26 @@ const items = document.querySelector(".items");
 objects.forEach((element, index) => {
   addImg(element, index);
 });
-// //scorro l'array di immagini
-// for (let i = 0; i < images.length; i++) {
-//   addImg(i);
-// }
 
-// //seleziono elemento prev nell'html
-// const prev = document.querySelector(".prev");
-// //seleziono elemento prev nell'html
-// const next = document.querySelector(".next");
-// //seleziono tutti gli item
-// const allItems = document.querySelectorAll(".item");
-// //seleziono tutti i thumbnail
+//bottoni prev e next
+const prev = document.querySelector(".prev");
+const next = document.querySelector(".next");
+//seleziono tutti gli item
+const allItems = document.querySelectorAll(".item");
+//seleziono tutti i thumbnail
 // const allThumbnailImages = document.querySelectorAll(".thumbnail > img");
-// // contatore che dice quale elemento ha classe active
-// let counterActive = 0;
+// contatore che dice quale elemento ha classe active
+let counterActive = 0;
 
-// //evento sul click di prev
-// prev.addEventListener("click", function () {
-//   prevImg();
-// });
+//evento sul click di prev
+prev.addEventListener("click", function () {
+  prevImg();
+});
 
-// //evento sul click di next
-// next.addEventListener("click", function () {
-//   nextImg();
-// });
+//evento sul click di next
+next.addEventListener("click", function () {
+  nextImg();
+});
 
 // // //seleziono la lista di thumbnail
 // // const allThumbnails = document.querySelectorAll(".thumbnail");
