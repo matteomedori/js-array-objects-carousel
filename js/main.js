@@ -59,8 +59,8 @@ function changeThumbImg(img, indexImg) {
   }
 }
 
-//funzione che aggiunge le immagini ad avvio programma
-function addImg(element, index) {
+//funzione che aggiunge l'elemento contenente immagine titolo e descrizione
+function addItem(element, index) {
   //per la prima immagine c'è anche la classe active e nell'immagine del thumbnail anche la classe selected
   if (index === 0) {
     //aggiungo un item
@@ -131,8 +131,9 @@ const items = document.querySelector(".items");
 //elemento html che dovrà contenere le thumbnails
 const thumbnails = document.querySelector(".thumbnails");
 
+//aggiungo ogni elemento
 objects.forEach((element, index) => {
-  addImg(element, index);
+  addItem(element, index);
 });
 
 //bottoni prev e next
@@ -170,6 +171,7 @@ for (let i = 0; i < allThumbnails.length; i++) {
 //variabile che mi serve per interrompere l'autoplay
 let timer;
 
+//bottoni
 const startBtn = document.getElementById("start");
 const stopBtn = document.getElementById("stop");
 const invertBtn = document.getElementById("invert");
